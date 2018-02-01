@@ -10,14 +10,14 @@ export class AppComponent implements OnInit {
   allUsers = [];
   maleUsers = [];
   femaleUsers = [];
-  select: string;
+  select = 'all';
+  query = 's';
 
   constructor(public service: RandomService) {}
   ngOnInit() {
     this.service.getUsers().subscribe(
       (data) => {
         this.allUsers = data['results'];
-        console.log(this.allUsers);
         this.service.saveAllUsers(this.allUsers);
         this.service.saveMaleUsers();
         this.service.saveFemaleUsers();

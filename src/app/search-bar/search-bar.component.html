@@ -1,10 +1,6 @@
 <div class="overlay" fxLayoutAlign="center center">
-  <div fxLayout="column" fxLayoutAlign="center center" fxFlex="450px" fxLayoutGap="20px">
-      <form [formGroup]="searchForm" fxLayout="column" fxLayoutAlign="center stretch" (ngSubmit)="reset()">
-        <mat-input-container>
-          <input matInput placeholder="Search" formControlName="search">
-          <mat-error>Blank Search is not allowed</mat-error>
-        </mat-input-container>
-      </form>
+  <div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="20px">
+    <input type="text" placeholder="Search" [formControl]="searchField">
   </div>
 </div>
+

@@ -13,10 +13,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MatCardModule, MatIconModule, MatInputModule,
-  MatToolbarModule
-} from '@angular/material';
+import { MatCardModule, MatIconModule, MatInputModule, MatToolbarModule } from '@angular/material';
+import {FilterPipe} from './filterPipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +23,8 @@ import {
     UsernameComponent,
     LastMessageTimeComponent,
     HeaderBarComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,6 @@ export class RandomService {
         this.maleUsers.push(value);
       }
     });
-    console.log(this.maleUsers);
   }
 
   saveFemaleUsers() {
@@ -33,7 +32,6 @@ export class RandomService {
         this.femaleUsers.push(value);
       }
     });
-    console.log(this.femaleUsers);
   }
 
   getMaleUsers() {
@@ -43,5 +41,7 @@ export class RandomService {
   getFemaleUsers() {
     return this.femaleUsers;
   }
+
+
 
 }
