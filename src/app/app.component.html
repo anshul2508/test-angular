@@ -1,23 +1,23 @@
 <div class="overlay" fxLayoutAlign="center center">
   <div fxFlex="400px" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" id="container">
     <div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
-      <app-header-bar></app-header-bar>
+      <app-header-bar (select)="onClick($event)"></app-header-bar>
       <app-search-bar></app-search-bar>
     </div>
-    <div fxLayout="row" fxLayoutAlign="space-around center" *ngFor="let user of users; let i = index" fxLayoutGap="20px">
-      <div>
-        <img [src]="user.picture.thumbnail">
-      </div>
-      <div id="name" fxLayout="column" fxLayoutAlign="center start" fxFlex>
-        <span>{{user.name.first}} {{user.name.last}}</span>
-        <span>
-          Last message
-        </span>
-      </div>
-      <div>
-        <span>{{user.registered.substr(11,5)}}</span>
-      </div>
+
+    <div *ngIf="select == 'all'">
+      <app-username [users]="allUsers"></app-username>
     </div>
+
+    <div *ngIf="select == 'male'">
+      <app-username [users]="maleUsers"></app-username>
+    </div>
+
+    <div *ngIf="select == 'female'">
+      <app-username [users]="femaleUsers"></app-username>
+    </div>
+
+
   </div>
 </div>
 

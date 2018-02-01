@@ -1,0 +1,15 @@
+
+<ul fxLayout="row" fxLayoutAlign="space-around center">
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectAll()">
+    <mat-icon>group</mat-icon>
+    <mat-toolbar>All</mat-toolbar>
+  </li>
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectMale()" >
+    <mat-icon>mood</mat-icon>
+    <mat-toolbar>Male</mat-toolbar>
+  </li>
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectFemale()">
+    <mat-icon>mood_bad</mat-icon>
+    <mat-toolbar>Female</mat-toolbar>
+  </li>
+</ul>

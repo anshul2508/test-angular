@@ -7,15 +7,28 @@ import {RandomService} from './randomService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  users = [];
+  allUsers = [];
+  maleUsers = [];
+  femaleUsers = [];
+  select: string;
 
-  constructor(public service: RandomService){}
+  constructor(public service: RandomService) {}
   ngOnInit() {
     this.service.getUsers().subscribe(
       (data) => {
-        this.users = data['results'];
-        console.log(this.users[0].picture.thumbnail);
+        this.allUsers = data['results'];
+        console.log(this.allUsers);
+        this.service.saveAllUsers(this.allUsers);
+        this.service.saveMaleUsers();
+        this.service.saveFemaleUsers();
+        this.maleUsers =  this.service.getMaleUsers();
+        this.femaleUsers =  this.service.getFemaleUsers();
       }
     );
   }
+
+  onClick(event) {
+    this.select = event;
+  }
+
 }

@@ -13,7 +13,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule, MatIconModule, MatInputModule} from '@angular/material';
+import {
+  MatCardModule, MatIconModule, MatInputModule,
+  MatToolbarModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import {MatCardModule, MatIconModule, MatInputModule} from '@angular/material';
     MatIconModule,
     MatCardModule,
     MatInputModule,
+    MatToolbarModule,
+
   ],
   providers: [RandomService],
   bootstrap: [AppComponent]
