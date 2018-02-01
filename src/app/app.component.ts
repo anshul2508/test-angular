@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   maleUsers = [];
   femaleUsers = [];
   select = 'all';
-  query = 's';
+  query = '';
 
   constructor(public service: RandomService) {}
   ngOnInit() {
@@ -29,6 +29,19 @@ export class AppComponent implements OnInit {
 
   onClick(event) {
     this.select = event;
+  }
+
+  loadMore() {
+    this.service.getUsers().subscribe(
+      (data) => {
+        this.allUsers.push(...data['results']);
+        this.service.saveAllUsers(this.allUsers);
+        this.service.saveMaleUsers();
+        this.service.saveFemaleUsers();
+        this.maleUsers =  this.service.getMaleUsers();
+        this.femaleUsers =  this.service.getFemaleUsers();
+      }
+    );
   }
 
 }

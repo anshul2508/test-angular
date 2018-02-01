@@ -6,7 +6,6 @@ import { ProfilePicComponent } from './profile-pic/profile-pic.component';
 import { UsernameComponent } from './username/username.component';
 import { LastMessageTimeComponent } from './last-message-time/last-message-time.component';
 import { HeaderBarComponent } from './header-bar/header-bar.component';
-import { SearchBarComponent } from './search-bar/search-bar.component';
 import {RandomService} from './randomService';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -23,7 +22,6 @@ import {FilterPipe} from './filterPipe';
     UsernameComponent,
     LastMessageTimeComponent,
     HeaderBarComponent,
-    SearchBarComponent,
     FilterPipe
   ],
   imports: [

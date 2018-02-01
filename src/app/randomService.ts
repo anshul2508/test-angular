@@ -19,6 +19,7 @@ export class RandomService {
   }
 
   saveMaleUsers() {
+    this.maleUsers = [];
     this.allUsers.forEach(value => {
       if (value.gender === 'male') {
         this.maleUsers.push(value);
@@ -27,6 +28,7 @@ export class RandomService {
   }
 
   saveFemaleUsers() {
+    this.femaleUsers = [];
     this.allUsers.forEach(value => {
       if (value.gender === 'female') {
         this.femaleUsers.push(value);
