@@ -18,16 +18,20 @@ export class AllUsersComponent implements OnInit {
   constructor(public service: RandomService) { }
 
   ngOnInit() {
-    this.service.importUsers().subscribe(
-      (data) => {
+    if (this.service.allUsers.length > 0) {
+      this.allUsers = this.service.allUsers;
+    }else {
+      this.service.importUsers().subscribe(
+        (data) => {
           this.allUsers = data['results'];
           this.service.allUsers = this.allUsers;
           this.service.saveMaleUsers();
           this.service.saveFemaleUsers();
           this.maleUsers =  this.service.maleUsers;
           this.femaleUsers =  this.service.femaleUsers;
-      }
-    );
+        }
+      );
+    }
   }
 
   onClick(event) {
