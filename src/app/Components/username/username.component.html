@@ -1,0 +1,17 @@
+  <div fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let user of users; let i = index" fxLayoutGap="20px"
+     style="margin-left: 5px ; width: 250px" (click)="getDetails(user)">
+  <div>
+    <img [src]="user.picture.thumbnail">
+  </div>
+  <div id="name" fxLayout="column" fxLayoutAlign="start start" fxFlex >
+    <span>{{user.name.first}} {{user.name.last}}</span>
+    <span>
+          Last message
+    </span>
+  </div>
+  <div>
+    <span>{{user.registered.substr(11,5)}}</span>
+  </div>
+  </div>
+
+

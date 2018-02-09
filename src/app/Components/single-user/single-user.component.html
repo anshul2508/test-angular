@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="space-around center" style="margin-left: 20px">
+  <div>
+    <img [src]="user.picture.medium">
+  </div>
+  <div>
+    <span>{{user.name.first}} {{user.name.last}}</span>
+  </div>
+
+  <div>
+    <span>{{user.phone}}</span>
+  </div>
+
+  <div>
+    <span>{{user.cell}}</span>
+  </div>
+
+  <div>
+    <span>{{user.email}}</span>
+  </div>
+
+  <button (click)="openFriendList()">Friend list</button>
+
+</div>

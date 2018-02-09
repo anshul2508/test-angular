@@ -1,0 +1,38 @@
+<div fxFlex="550px" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" id="container">
+<div fxLayout="column" fxLayoutAlign="space-around stretch" fxLayoutGap="20px">
+
+  <app-header-bar (select)="onClick($event)"></app-header-bar>
+
+  <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <input type="text" placeholder="Search" [(ngModel)] = "query">
+  </div>
+
+</div>
+
+
+<div fxLayout="row" fxLayoutAlign="start ">
+
+  <div *ngIf="select == 'all'">
+    <app-username [users]="allUsers | filter : query " (selectedUser)= "onClickUser($event)"></app-username>
+  </div>
+
+  <div *ngIf="select == 'male'">
+    <app-username [users]="maleUsers | filter : query" (selectedUser)= "onClickUser($event)"></app-username>
+  </div>
+
+  <div *ngIf="select == 'female'">
+    <app-username [users]="femaleUsers | filter : query" (selectedUser)= "onClickUser($event)"></app-username>
+  </div>
+
+  <div *ngIf="!selectedUser">
+    <span *appFlexAlignmentHack></span>
+  </div>
+
+  <div *ngIf="selectedUser">
+    <app-single-user [user]="selectedUser" ></app-single-user>
+  </div>
+
+</div>
+  <button (click)="loadMore()">Load More</button>
+
+</div>

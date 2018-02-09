@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {RandomService} from './randomService';
 
 @Component({
   selector: 'app-root',
@@ -7,41 +6,8 @@ import {RandomService} from './randomService';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  allUsers = [];
-  maleUsers = [];
-  femaleUsers = [];
-  select = 'all';
-  query = '';
 
-  constructor(public service: RandomService) {}
+  constructor() {}
   ngOnInit() {
-    this.service.getUsers().subscribe(
-      (data) => {
-        this.allUsers = data['results'];
-        this.service.saveAllUsers(this.allUsers);
-        this.service.saveMaleUsers();
-        this.service.saveFemaleUsers();
-        this.maleUsers =  this.service.getMaleUsers();
-        this.femaleUsers =  this.service.getFemaleUsers();
-      }
-    );
   }
-
-  onClick(event) {
-    this.select = event;
-  }
-
-  loadMore() {
-    this.service.getUsers().subscribe(
-      (data) => {
-        this.allUsers.push(...data['results']);
-        this.service.saveAllUsers(this.allUsers);
-        this.service.saveMaleUsers();
-        this.service.saveFemaleUsers();
-        this.maleUsers =  this.service.getMaleUsers();
-        this.femaleUsers =  this.service.getFemaleUsers();
-      }
-    );
-  }
-
 }

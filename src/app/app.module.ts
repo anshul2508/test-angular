@@ -2,27 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { ProfilePicComponent } from './profile-pic/profile-pic.component';
-import { UsernameComponent } from './username/username.component';
-import { LastMessageTimeComponent } from './last-message-time/last-message-time.component';
-import { HeaderBarComponent } from './header-bar/header-bar.component';
+import { UsernameComponent } from './Components/username/username.component';
+import { HeaderBarComponent } from './Components/header-bar/header-bar.component';
 import {RandomService} from './randomService';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatCardModule, MatIconModule, MatInputModule, MatToolbarModule } from '@angular/material';
 import {FilterPipe} from './filterPipe';
+import { SingleUserComponent } from './Components/single-user/single-user.component';
+import {FlexAlignmentHackDirective} from './Directive/flex-alignment-hack';
+import {FriendListComponent} from './Components/friend-list/friend-list.component';
+import {AllUsersComponent} from './Components/all-users/all-users.component';
+import {AppRoutingModule} from './app.routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilePicComponent,
-    UsernameComponent,
-    LastMessageTimeComponent,
+    AllUsersComponent,
     HeaderBarComponent,
-    FilterPipe
+    UsernameComponent,
+    FilterPipe,
+    SingleUserComponent,
+    FlexAlignmentHackDirective,
+    FriendListComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +35,11 @@ import {FilterPipe} from './filterPipe';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
     MatIconModule,
     MatCardModule,
     MatInputModule,
     MatToolbarModule,
+    AppRoutingModule,
 
   ],
   providers: [RandomService],

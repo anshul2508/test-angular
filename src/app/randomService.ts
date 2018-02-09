@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {User} from './models/user';
 
 @Injectable()
 export class RandomService {
@@ -7,16 +8,14 @@ export class RandomService {
   allUsers = [];
   maleUsers = [];
   femaleUsers = [];
+  selectedUser: User;
 
   constructor(private http: HttpClient ) {}
 
-  getUsers() {
+  importUsers() {
     return this.http.get('https://randomuser.me/api/?results=50');
   }
 
-  saveAllUsers(users: any[]) {
-    this.allUsers = users;
-  }
 
   saveMaleUsers() {
     this.maleUsers = [];
@@ -35,15 +34,5 @@ export class RandomService {
       }
     });
   }
-
-  getMaleUsers() {
-    return this.maleUsers;
-  }
-
-  getFemaleUsers() {
-    return this.femaleUsers;
-  }
-
-
 
 }

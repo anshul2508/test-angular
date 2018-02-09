@@ -1,11 +1,11 @@
 import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
-import {AppComponent} from './app.component';
-import {UsernameComponent} from './username/username.component';
+import {FriendListComponent} from './Components/friend-list/friend-list.component';
+import {AllUsersComponent} from './Components/all-users/all-users.component';
 
 const appRoutes: Routes = [
-  {path: 'all', component: AppComponent},
-  {path: 'users', component: UsernameComponent},
+  {path: '', component: AllUsersComponent},
+  {path: 'friend-list', component: FriendListComponent},
 ];
 
 @NgModule({
