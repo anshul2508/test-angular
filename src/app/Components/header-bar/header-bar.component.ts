@@ -1,4 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {State} from '../../reducers/index';
+import {TabSelectedUpdateAction} from '../../actions/user';
 
 @Component({
   selector: 'app-header-bar',
@@ -6,24 +9,27 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
+  select: string;
 
-  @Output() select: EventEmitter<string> = new EventEmitter<string>();
-
-  constructor( ) { }
+  constructor( public store: Store<State>) { }
 
   ngOnInit() {
   }
 
   selectAll() {
-    this.select.emit('all');
+    this.select = 'all';
+    this.store.dispatch(new TabSelectedUpdateAction('all'));
   }
 
   selectMale() {
-    this.select.emit('male');
+    this.select = 'male';
+    this.store.dispatch(new TabSelectedUpdateAction('male'));
   }
 
   selectFemale() {
-    this.select.emit('female');
+    this.select = 'female';
+    this.store.dispatch(new TabSelectedUpdateAction('female'));
   }
+
 
 }

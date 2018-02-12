@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {User} from '../../models/user';
-import {RandomService} from '../../randomService';
+import {Component, Input, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {State} from '../../reducers/index';
+import {SelectedUserUpdateAction} from '../../actions/user';
 
 @Component({
   selector: 'app-username',
@@ -9,16 +10,14 @@ import {RandomService} from '../../randomService';
 })
 export class UsernameComponent implements OnInit {
   @Input() users = [];
-  @Output() selectedUser: EventEmitter<User> = new EventEmitter<User>();
 
-  constructor(public service: RandomService) { }
+  constructor(public store: Store<State>) { }
 
   ngOnInit() {
   }
 
   getDetails(user) {
-    this.service.selectedUser = user;
-    this.selectedUser.emit(user);
+    this.store.dispatch(new SelectedUserUpdateAction(user));
   }
 
 

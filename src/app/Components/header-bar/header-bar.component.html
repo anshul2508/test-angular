@@ -1,15 +1,17 @@
-
 <ul fxLayout="row" fxLayoutAlign="space-around center">
-  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectAll()">
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectAll()"
+      [ngStyle]="{'background-color': select === 'all' ? 'aqua' : 'white' }" fxFlex="33%">
     <mat-icon>group</mat-icon>
-    <mat-toolbar>All</mat-toolbar>
+    <span>All</span>
   </li>
-  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectMale()" >
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectMale()"
+      [ngStyle]="{'background-color': select === 'male' ? 'aqua' : 'white' }" fxFlex="33%">
     <mat-icon>mood</mat-icon>
-    <mat-toolbar>Male</mat-toolbar>
+    <span>Male</span>
   </li>
-  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectFemale()">
+  <li fxLayout="column" fxLayoutAlign="center center" (click)="selectFemale()"
+      [ngStyle]="{'background-color': select === 'female' ? 'aqua' : 'white' }" fxFlex>
     <mat-icon>mood_bad</mat-icon>
-    <mat-toolbar>Female</mat-toolbar>
+    <span>Female</span>
   </li>
 </ul>

@@ -5,11 +5,6 @@ import {User} from './models/user';
 @Injectable()
 export class RandomService {
 
-  allUsers = [];
-  maleUsers = [];
-  femaleUsers = [];
-  selectedUser: User;
-
   constructor(private http: HttpClient ) {}
 
   importUsers() {
@@ -17,22 +12,24 @@ export class RandomService {
   }
 
 
-  saveMaleUsers() {
-    this.maleUsers = [];
-    this.allUsers.forEach(value => {
+  getMaleUsers(users: User[]) {
+    const maleUsers = [];
+    users.forEach(value => {
       if (value.gender === 'male') {
-        this.maleUsers.push(value);
+        maleUsers.push(value);
       }
     });
+    return maleUsers;
   }
 
-  saveFemaleUsers() {
-    this.femaleUsers = [];
-    this.allUsers.forEach(value => {
+  getFemaleUsers(users: User[]) {
+    const femaleUsers = [];
+    users.forEach(value => {
       if (value.gender === 'female') {
-        this.femaleUsers.push(value);
+        femaleUsers.push(value);
       }
     });
+    return femaleUsers;
   }
 
 }

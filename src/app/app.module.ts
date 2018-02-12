@@ -16,6 +16,8 @@ import {FlexAlignmentHackDirective} from './Directive/flex-alignment-hack';
 import {FriendListComponent} from './Components/friend-list/friend-list.component';
 import {AllUsersComponent} from './Components/all-users/all-users.component';
 import {AppRoutingModule} from './app.routing.module';
+import {StoreModule} from '@ngrx/store';
+import {reducers} from './reducers/index';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import {AppRoutingModule} from './app.routing.module';
     MatInputModule,
     MatToolbarModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers)
 
   ],
   providers: [RandomService],

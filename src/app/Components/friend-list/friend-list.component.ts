@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {User} from '../../models/user';
-import {RandomService} from '../../randomService';
+import {Store} from '@ngrx/store';
+import {getSelectedUser, State} from '../../reducers/index';
 
 @Component({
   selector: 'app-friend-list',
@@ -11,10 +12,14 @@ import {RandomService} from '../../randomService';
 export class FriendListComponent implements OnInit {
   user: User;
 
-  constructor(public router: Router, public service: RandomService) { }
+  constructor(public router: Router, public store: Store<State>) { }
 
   ngOnInit() {
-    this.user = this.service.selectedUser;
+    this.store.select(getSelectedUser).subscribe(
+      (data) => {
+        this.user = data;
+      }
+    );
   }
 
   goBack() {
